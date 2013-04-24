@@ -105,6 +105,13 @@ AutoLayoutShorthand Disadvantages
 
 * Like Only God Can Create A Tree, Only VFL Can Create NSSpacers. Fortunately ALS plays nicely with VFL, so use VFL if you want to take advantage of spacers.
 
+Version History
+---------------
+
+### v0.0.1: Apr 22 2013
+
+* Initial release.
+
 
 
 ---
@@ -112,10 +119,3 @@ AutoLayoutShorthand Disadvantages
 1. Actually `+[NSLayoutConstraint  constraintsWithVisualFormat:…]` will create a constraint with an attribute of `NSLayoutAttributeLeading` where the example above uses `NSLayoutAttributeLeft`. ALS does support `@"leading =="` in addition to `@"left =="`, I just wanted to make the example straightforward to folks who haven't learned about Auto Layout's Right-To-Left text system support yet.
 
 2. Same deal as <sup>1</sup>.
-
-Version History
----------------
-
-### v0.0.1: Apr 22 2013
-
-* Initial release.
