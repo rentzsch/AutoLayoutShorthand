@@ -172,7 +172,11 @@ Version History
 
 ### v0.0.1: Apr 22 2013
 
-* Initial release.
+* Initial version.
+
+	As its [Semantic Version](http://semver.org/) suggests, its interface may still change in client-breaking ways.
+
+	That said, I'm already writing lots of code against it and I think its basic design is holding up. I'm mostly soliciting feedback and letting it breathe for a little bit before calling it a 1.0.0.
 
 
 
