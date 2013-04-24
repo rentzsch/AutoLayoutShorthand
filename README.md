@@ -3,7 +3,7 @@ Auto Layout Shorthand
 
 Auto Layout Shorthand (ALS) is an alternative system for creating and adding Auto Layout constraints.
 
-It feels kind of CSS, though more powerful and without HTML's frustrating default layout model.
+It feels kind of like CSS, though more powerful and without HTML's frustrating default layout model.
 
 Here's a simple example to introduce ALS:
 
