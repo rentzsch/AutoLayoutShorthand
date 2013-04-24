@@ -17,14 +17,14 @@ Here's a simple example to introduce ALS:
 Here's mostly<sup>1</sup> the same example using the Visual Format Language (VFL):
 
 	[iconView addConstraints:@[
-	 [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[iconView(32)]"
+	 [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[iconView(kIconWidth)]"
 	                                         options:0
-	                                         metrics:nil
-	                                           	views:NSDictionaryOfVariableBindings(iconView)],
-	 [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[iconView(32)]"
+	                                         metrics:NSDictionaryOfVariableBindings(kIconWidth)
+	                                           views:NSDictionaryOfVariableBindings(iconView)],
+	 [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[iconView(kIconHeight)]"
 	                                         options:0
-	                                         metrics:nil
-	                                           	views:NSDictionaryOfVariableBindings(iconView)],
+	                                         metrics:NSDictionaryOfVariableBindings(kIconHeight)
+	                                           views:NSDictionaryOfVariableBindings(iconView)],
 	 ]];
 
 And mostly<sup>2</sup> the same example using `+[NSLayoutConstraint constraintWithItem:…]`:
