@@ -170,6 +170,10 @@ Auto Layout Shorthand Disadvantages
 Version History
 ---------------
 
+### v0.0.2: Apr 24 2013
+
+* [FIX] Make Closest-Common-Superview a little more forgiving.
+
 ### v0.0.1: Apr 22 2013
 
 * Initial version.
