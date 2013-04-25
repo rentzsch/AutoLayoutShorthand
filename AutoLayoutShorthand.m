@@ -149,7 +149,7 @@
             
             UIView *rhsViewItr = self.superview;
             while (!closestCommonSuperview && rhsViewItr) {
-                UIView *lhsViewItr = secondItem.superview;
+                UIView *lhsViewItr = secondItem;
                 while (!closestCommonSuperview && lhsViewItr) {
                     if (rhsViewItr == lhsViewItr) {
                         closestCommonSuperview = rhsViewItr;
