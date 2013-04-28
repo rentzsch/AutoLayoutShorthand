@@ -186,7 +186,7 @@ TODO
 Version History
 ---------------
 
-### v0.0.2: Apr 24 2013
+### v0.1.1: Apr 24 2013
 
 * [FIX] Make Closest-Common-Superview a little more forgiving.
 
