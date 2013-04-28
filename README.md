@@ -167,6 +167,20 @@ Auto Layout Shorthand Disadvantages
 
 * Like Only God Can Create A Tree, Only VFL Can Create NSSpacers. Fortunately ALS plays nicely with VFL, so use VFL if you want to take advantage of spacers.
 
+TODO
+----
+
+* Either upgrade `als_superview` to a UIView or remove it altogether. Probably the former -- it's not strictly needed (you can always just `myview.superview`, but the conceptual clarity is worth a more-complicated implementation AFAICS.
+
+* Add ability to get/set constraints by their ALS keys:
+
+	* `-[UIView als_constraintForKey:]`
+	* `-[UIView als_setConstraint:forKey:]`
+
+* Allow overwriting of previously-set constraints:
+
+	* `-[UIView als_setConstraints:]`
+
 Version History
 ---------------
 
@@ -179,8 +193,6 @@ Version History
 * Initial version.
 
 	As its [Semantic Version](http://semver.org/) suggests, its interface may still change in client-breaking ways.
-
-	That said, I'm already writing lots of code against it and I think its basic design is holding up. I'm mostly soliciting feedback and letting it breathe for a little bit before calling it a 1.0.0.
 
 
 
