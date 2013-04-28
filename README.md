@@ -190,7 +190,7 @@ Version History
 
 * [FIX] Make Closest-Common-Superview a little more forgiving.
 
-### v0.0.1: Apr 22 2013
+### v0.1: Apr 22 2013
 
 * Initial version.
 
