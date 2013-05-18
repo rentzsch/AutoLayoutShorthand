@@ -110,7 +110,7 @@
                 constant = [constraintValueNumberDict[als_constant] doubleValue];
             }
             if (constraintValueNumberDict[als_priority]) {
-                constant = [constraintValueNumberDict[als_priority] doubleValue];
+                priority = [constraintValueNumberDict[als_priority] doubleValue];
             }
         } else if ([constraintValue isKindOfClass:[NSNumber class]]) {
             constant = [constraintValue doubleValue];
