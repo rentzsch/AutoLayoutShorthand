@@ -12,7 +12,7 @@
 + (instancetype)viewAttrWithView:(ALSView*)view attr:(NSLayoutAttribute)attr;
 @end
 
-@implementation ALSView (AutoLayoutShorthand)
+@implementation ALSView (NS(AutoLayoutShorthand))
 
 + (NSLayoutAttribute)_jr_parseLayoutAttributeName:(NSString*)key {
     static NSDictionary *attrValueForName = nil;
