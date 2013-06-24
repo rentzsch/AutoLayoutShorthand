@@ -187,7 +187,7 @@ Version History
 
 		Coupled with als_addConstraints: above, this allows you to create groups of constraints, easily switching them on or off based on user interaction and/or application state.
 
-	* als_hostView and als_setHostView: category methods on NSLayoutConstraint handle to the to-one nature (`(UI|NS)View <->> NSLayoutConstraint`) of views and their constraints and to keep track of which host view a constraint has been assigned to so it can be activated (added) and deactivated (removed) easily at runtime.
+	* als_hostView and als_setHostView: category methods on NSLayoutConstraint handle the to-one nature (`(UI|NS)View <->> NSLayoutConstraint`) of views and their constraints and to keep track of which host view a constraint has been assigned to so it can be activated (added) and deactivated (removed) easily at runtime.
 
 	* als_isActive and als_setActive: category methods on NSLayoutConstraint to provide individual constraint activation control. Used by als_activateConstraints & als_deactivateConstraints.
 
