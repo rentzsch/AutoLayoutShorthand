@@ -172,19 +172,34 @@ TODO
 
 * Either upgrade `als_superview` to a UIView or remove it altogether. Probably the former -- it's not strictly needed (you can always just `myview.superview`, but the conceptual clarity is worth a more-complicated implementation AFAICS.
 
-* Add ability to get/set constraints by their ALS keys:
-
-	* `-[UIView als_constraintForKey:]`
-	* `-[UIView als_setConstraint:forKey:]`
-
-* Allow overwriting of previously-set constraints:
-
-	* `-[UIView als_setConstraints:]`
-
 * Write an example app to showcase common scenarios.
 
 Version History
 ---------------
+
+### v0.4: Jun 24 2013
+
+* [NEW] Improved handling for groups of constraints (the common case):
+
+	* als_addConstraints: now returns an array of the constraints its created.
+
+	* als_activateConstraints and als_deactivateConstraints category methods on NSArray allow enabling and disabling groups of NSLayoutConstraints.
+
+		Coupled with als_addConstraints: above, this allows you to create groups of constraints, easily switching them on or off based on user interaction and/or application state.
+
+	* als_hostView and als_setHostView: category methods on NSLayoutConstraint handle to the to-one nature (`(UI|NS)View <->> NSLayoutConstraint`) of views and their constraints and to keep track of which host view a constraint has been assigned to so it can be activated (added) and deactivated (removed) easily at runtime.
+
+	* als_isActive and als_setActive: category methods on NSLayoutConstraint to provide individual constraint activation control. Used by als_activateConstraints & als_deactivateConstraints.
+
+This replaces the idea that I'd add a way to get/set constraints by their ALS keys previously mentioned in the TODO section. Also the idea to allow overwriting of previously-set constraints.
+
+### v0.3: Jun 18 2013
+
+* [DEV] Re-unify UIView and NSView implementations.
+
+### v0.2: May 22 2013
+
+* [NEW] Add NSView support. ([Tony Arnold](https://github.com/rentzsch/AutoLayoutShorthand/pull/2))
 
 ### v0.1.1: Apr 24 2013
 

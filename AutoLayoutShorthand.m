@@ -1,9 +1,10 @@
-// AutoLayoutShorthand.m semver:0.3
+// AutoLayoutShorthand.m semver:0.4
 //   Copyright (c) 2013 Jonathan 'Wolf' Rentzsch: http://rentzsch.com
 //   Some rights reserved: http://opensource.org/licenses/mit
 //   https://github.com/rentzsch/AutoLayoutShorthand
 
 #import "AutoLayoutShorthand.h"
+#import <objc/runtime.h>
 
 @interface ALSViewAttr : NSObject
 @property(nonatomic, strong)  ALSView            *view;
@@ -66,7 +67,8 @@
     }
 }
 
-- (void)als_addConstraints:(NSDictionary*)constraints {
+- (NSArray*)als_addConstraints:(NSDictionary*)constraints {
+    NSMutableArray *result = [NSMutableArray array];
     for (NSString *constraintKey in constraints) {
         ALSView *firstItem = self;
         NSLayoutAttribute firstAttribute = [ALSView _jr_parseLayoutAttributeName:constraintKey];
@@ -143,6 +145,7 @@
                                                                        constant:constant];
         constraint.priority = priority;
         
+        [result addObject:constraint];
         
         if (secondItem) {
             ALSView *closestCommonSuperview = nil;
@@ -163,11 +166,12 @@
                       @"couldn't find a common superview for %@ and %@",
                       firstItem,
                       secondItem);
-            [closestCommonSuperview addConstraint:constraint];
+            [constraint als_setHostView:closestCommonSuperview];
         } else {
-            [self addConstraint:constraint];
+            [constraint als_setHostView:self];
         }
     }
+    return result;
 }
 
 - (id)als_left      { return [ALSViewAttr viewAttrWithView:self attr:NSLayoutAttributeLeft];      }
@@ -183,6 +187,69 @@
 - (id)als_baseline  { return [ALSViewAttr viewAttrWithView:self attr:NSLayoutAttributeBaseline];  }
 
 @end
+
+//-----------------------------------------------------------------------------------------
+
+@implementation NSLayoutConstraint (NS(AutoLayoutShorthand))
+
+- (ALSView*)als_hostView {
+    return objc_getAssociatedObject(self, _cmd);
+}
+
+- (void)als_setHostView:(ALSView*)hostView {
+    if (hostView == self.als_hostView) return;
+    
+    if ([self.als_hostView.constraints containsObject:self]) {
+        [self.als_hostView removeConstraint:self];
+    }
+    
+    objc_setAssociatedObject(self,
+                             @selector(als_hostView),
+                             hostView,
+                             OBJC_ASSOCIATION_ASSIGN); // too bad we don't have weak
+    
+    [self.als_hostView addConstraint:self];
+}
+
+- (BOOL)als_isActive {
+    NSParameterAssert(self.als_hostView);
+    return [self.als_hostView.constraints containsObject:self];
+}
+
+- (void)als_setActive:(BOOL)active {
+    NSParameterAssert(self.als_hostView);
+    if (active) {
+        if (![self.als_hostView.constraints containsObject:self]) {
+            [self.als_hostView addConstraint:self];
+        }
+    } else {
+        if ([self.als_hostView.constraints containsObject:self]) {
+            [self.als_hostView removeConstraint:self];
+        }
+    }
+}
+
+@end
+
+//-----------------------------------------------------------------------------------------
+
+@implementation NSArray (NS(AutoLayoutShorthand))
+
+- (void)als_activateConstraints {
+    for (NSLayoutConstraint *constraint in self) {
+        [constraint als_setActive:YES];
+    }
+}
+
+- (void)als_deactivateConstraints {
+    for (NSLayoutConstraint *constraint in self) {
+        [constraint als_setActive:NO];
+    }
+}
+
+@end
+
+//-----------------------------------------------------------------------------------------
 
 @implementation ALSViewAttr
 

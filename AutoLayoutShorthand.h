@@ -1,4 +1,4 @@
-// AutoLayoutShorthand.h semver:0.3
+// AutoLayoutShorthand.h semver:0.4
 //   Copyright (c) 2013 Jonathan 'Wolf' Rentzsch: http://rentzsch.com
 //   Some rights reserved: http://opensource.org/licenses/mit
 //   https://github.com/rentzsch/AutoLayoutShorthand
@@ -29,6 +29,8 @@
     #endif
 #endif
 
+#warning TODO: NS()-ify method names :(
+
 //-----------------------------------------------------------------------------------------
 
 @interface ALSView (NS(AutoLayoutShorthand))
@@ -44,7 +46,7 @@
 - (id)als_centerY;
 - (id)als_baseline;
 
-- (void)als_addConstraints:(NSDictionary*)constraints;
+- (NSArray*)als_addConstraints:(NSDictionary*)constraints;
 @end
 
 extern NSString * const als_view;
@@ -52,3 +54,20 @@ extern NSString * const als_superview;
 extern NSString * const als_multiplier;
 extern NSString * const als_constant;
 extern NSString * const als_priority;
+
+//-----------------------------------------------------------------------------------------
+
+@interface NSLayoutConstraint (NS(AutoLayoutShorthand))
+- (ALSView*)als_hostView;
+- (void)als_setHostView:(ALSView*)hostView;
+
+- (BOOL)als_isActive;
+- (void)als_setActive:(BOOL)active;
+@end
+
+//-----------------------------------------------------------------------------------------
+
+@interface NSArray (NS(AutoLayoutShorthand))
+- (void)als_activateConstraints;
+- (void)als_deactivateConstraints;
+@end
