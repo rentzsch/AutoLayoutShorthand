@@ -106,16 +106,16 @@
                 }
             }
             if (constraintValueNumberDict[als_multiplier]) {
-                multiplier = [constraintValueNumberDict[als_multiplier] doubleValue];
+                multiplier = (CGFLOAT_TYPE)[constraintValueNumberDict[als_multiplier] doubleValue];
             }
             if (constraintValueNumberDict[als_constant]) {
-                constant = [constraintValueNumberDict[als_constant] doubleValue];
+                constant = (CGFLOAT_TYPE)[constraintValueNumberDict[als_constant] doubleValue];
             }
             if (constraintValueNumberDict[als_priority]) {
-                priority = MIN([constraintValueNumberDict[als_priority] doubleValue], ALSLayoutPriorityRequired);
+                priority = MIN([constraintValueNumberDict[als_priority] floatValue], ALSLayoutPriorityRequired);
             }
         } else if ([constraintValue isKindOfClass:[NSNumber class]]) {
-            constant = [constraintValue doubleValue];
+            constant = (CGFLOAT_TYPE)[constraintValue doubleValue];
         } else if ([constraintValue isKindOfClass:[NSString class]]) {
             if ([constraintValue isEqualToString:als_superview]) {
                 secondItem = firstItem.superview;
