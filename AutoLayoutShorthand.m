@@ -150,7 +150,7 @@
         if (secondItem) {
             ALSView *closestCommonSuperview = nil;
             
-            ALSView *rhsViewItr = self.superview;
+            ALSView *rhsViewItr = self;
             while (!closestCommonSuperview && rhsViewItr) {
                 ALSView *lhsViewItr = secondItem;
                 while (!closestCommonSuperview && lhsViewItr) {
