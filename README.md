@@ -174,6 +174,8 @@ TODO
 
 * Write an example app to showcase common scenarios.
 
+* NS()-ify method names :(
+
 Version History
 ---------------
 
