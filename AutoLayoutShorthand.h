@@ -29,8 +29,6 @@
     #endif
 #endif
 
-#warning TODO: NS()-ify method names :(
-
 //-----------------------------------------------------------------------------------------
 
 @interface ALSView (NS(AutoLayoutShorthand))
