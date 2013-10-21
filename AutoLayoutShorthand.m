@@ -116,6 +116,10 @@
             }
         } else if ([constraintValue isKindOfClass:[NSNumber class]]) {
             constant = (CGFLOAT_TYPE)[constraintValue doubleValue];
+            if (attribute != NSLayoutAttributeWidth && attribute != NSLayoutAttributeHeight && secondItem == nil) {
+                secondItem = firstItem.superview;
+                secondAttribute = firstAttribute;
+            }
         } else if ([constraintValue isKindOfClass:[NSString class]]) {
             if ([constraintValue isEqualToString:als_superview]) {
                 secondItem = firstItem.superview;
