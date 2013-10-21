@@ -116,7 +116,7 @@
             }
         } else if ([constraintValue isKindOfClass:[NSNumber class]]) {
             constant = (CGFLOAT_TYPE)[constraintValue doubleValue];
-            if (attribute != NSLayoutAttributeWidth && attribute != NSLayoutAttributeHeight && secondItem == nil) {
+            if (firstAttribute != NSLayoutAttributeWidth && firstAttribute != NSLayoutAttributeHeight && secondItem == nil) {
                 secondItem = firstItem.superview;
                 secondAttribute = firstAttribute;
             }
