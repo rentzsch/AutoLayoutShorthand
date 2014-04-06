@@ -165,17 +165,34 @@ Auto Layout Shorthand Disadvantages
 
 * Another thing to learn. You probably have to learn VFL anyway to understand Auto Layout's debugging logs.
 
+* Encourages you to think of constraints being applied to the target view itself instead of the superview they're actually added to. I think removing the level of indirection is worth it.
+
 * Like Only God Can Create A Tree, Only VFL Can Create NSSpacers. Fortunately ALS plays nicely with VFL, so use VFL if you want to take advantage of spacers.
+
+See Also
+--------
+
+- [UIView+jr_addConstraints](https://github.com/rentzsch/UIView-jr_addConstraints)
+- [Masonry](https://github.com/cloudkite/Masonry)
+- [CompactConstraint](https://github.com/marcoarment/CompactConstraint)
 
 TODO
 ----
 
-* Either upgrade `als_superview` to a UIView or remove it altogether. Probably the former -- it's not strictly needed (you can always just `myview.superview`, but the conceptual clarity is worth a more-complicated implementation AFAICS.
-
 * Write an example apps to showcase common scenarios.
+
+* Either upgrade `als_superview` to a UIView or remove it altogether. Probably the former -- it's not strictly needed (you can always just `myview.superview`, but the conceptual clarity is worth a more-complicated implementation AFAICS.
 
 Version History
 ---------------
+
+### v1.0: Apr 06 2014
+
+* [CHANGE] Allow either view to be the lowest common ancestor. ([Andrew Hershberger](https://github.com/rentzsch/AutoLayoutShorthand/pull/6))
+
+* [FIX] Implicit conversion warnings. ([Andrew Hershberger](https://github.com/rentzsch/AutoLayoutShorthand/pull/5))
+
+* [FIX] Priority doesn't work. ([Joe Szymanski](https://github.com/rentzsch/AutoLayoutShorthand/pull/3))
 
 ### v0.4: Jun 24 2013
 
