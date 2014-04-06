@@ -1,5 +1,5 @@
-// AutoLayoutShorthand.m semver:0.4
-//   Copyright (c) 2013 Jonathan 'Wolf' Rentzsch: http://rentzsch.com
+// AutoLayoutShorthand.m semver:1.0
+//   Copyright (c) 2013-2014 Jonathan 'Wolf' Rentzsch: http://rentzsch.com
 //   Some rights reserved: http://opensource.org/licenses/mit
 //   https://github.com/rentzsch/AutoLayoutShorthand
 
