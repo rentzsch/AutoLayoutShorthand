@@ -16,7 +16,7 @@ Here's a simple example to introduce ALS:
 
 Here's mostly<sup>1</sup> the same example using the Visual Format Language (VFL):
 
-	[iconView addConstraints:@[
+	[iconView.superview addConstraints:@[
 	 [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[iconView(kIconWidth)]"
 	                                         options:0
 	                                         metrics:NSDictionaryOfVariableBindings(kIconWidth)
@@ -29,7 +29,7 @@ Here's mostly<sup>1</sup> the same example using the Visual Format Language (VFL
 
 And mostly<sup>2</sup> the same example using `+[NSLayoutConstraint constraintWithItem:…]`:
 
-	[iconView addConstraints:@[
+	[iconView.superview addConstraints:@[
 	 [NSLayoutConstraint constraintWithItem:iconView
 								  attribute:NSLayoutAttributeLeft
 								  relatedBy:NSLayoutRelationEqual
