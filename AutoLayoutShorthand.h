@@ -16,22 +16,8 @@
 #endif
 
 //-----------------------------------------------------------------------------------------
-// Poor man's namespacing support.
-// See http://rentzsch.tumblr.com/post/40806448108/ns-poor-mans-namespacing-for-objective-c
 
-#ifndef NS
-    #ifdef NS_NAMESPACE
-        #define JRNS_CONCAT_TOKENS(a,b) a##_##b
-        #define JRNS_EVALUATE(a,b) JRNS_CONCAT_TOKENS(a,b)
-        #define NS(original_name) JRNS_EVALUATE(NS_NAMESPACE, original_name)
-    #else
-        #define NS(original_name) original_name
-    #endif
-#endif
-
-//-----------------------------------------------------------------------------------------
-
-@interface ALSView (NS(AutoLayoutShorthand))
+@interface ALSView (AutoLayoutShorthand)
 - (id)als_left;
 - (id)als_right;
 - (id)als_top;
@@ -55,7 +41,7 @@ extern NSString * const als_priority;
 
 //-----------------------------------------------------------------------------------------
 
-@interface NSLayoutConstraint (NS(AutoLayoutShorthand))
+@interface NSLayoutConstraint (AutoLayoutShorthand)
 - (ALSView*)als_hostView;
 - (void)als_setHostView:(ALSView*)hostView;
 
@@ -65,7 +51,7 @@ extern NSString * const als_priority;
 
 //-----------------------------------------------------------------------------------------
 
-@interface NSArray (NS(AutoLayoutShorthand))
+@interface NSArray (AutoLayoutShorthand)
 - (void)als_activateConstraints;
 - (void)als_deactivateConstraints;
 @end

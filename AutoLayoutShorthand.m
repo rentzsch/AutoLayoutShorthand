@@ -13,7 +13,7 @@
 + (instancetype)viewAttrWithView:(ALSView*)view attr:(NSLayoutAttribute)attr;
 @end
 
-@implementation ALSView (NS(AutoLayoutShorthand))
+@implementation ALSView (AutoLayoutShorthand)
 
 + (NSLayoutAttribute)_jr_parseLayoutAttributeName:(NSString*)key {
     static NSDictionary *attrValueForName = nil;
@@ -190,7 +190,7 @@
 
 //-----------------------------------------------------------------------------------------
 
-@implementation NSLayoutConstraint (NS(AutoLayoutShorthand))
+@implementation NSLayoutConstraint (AutoLayoutShorthand)
 
 - (ALSView*)als_hostView {
     return objc_getAssociatedObject(self, _cmd);
@@ -233,7 +233,7 @@
 
 //-----------------------------------------------------------------------------------------
 
-@implementation NSArray (NS(AutoLayoutShorthand))
+@implementation NSArray (AutoLayoutShorthand)
 
 - (void)als_activateConstraints {
     for (NSLayoutConstraint *constraint in self) {

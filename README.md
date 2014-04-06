@@ -172,9 +172,7 @@ TODO
 
 * Either upgrade `als_superview` to a UIView or remove it altogether. Probably the former -- it's not strictly needed (you can always just `myview.superview`, but the conceptual clarity is worth a more-complicated implementation AFAICS.
 
-* Write an example app to showcase common scenarios.
-
-* NS()-ify method names :(
+* Write an example apps to showcase common scenarios.
 
 Version History
 ---------------
