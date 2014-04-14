@@ -67,7 +67,7 @@ Auto Layout Shorthand is a poor man's DSL wedged into a normal Objective-C dicti
 
 Each key-value pair contains enough information to create one NSLayoutConstraint. This stands in contrast to VFL, where one string can be used to generate multiple constraints.
 
-The dictionary key encodes two pieces of information: the the NSLayoutConstraint's `firstAttribute` and its `relation`. Here's some examples:
+The dictionary key encodes two pieces of information: the NSLayoutConstraint's `firstAttribute` and its `relation`. Here's some examples:
 
 * `@"width >="`
 * `@"height <="`
