@@ -108,7 +108,7 @@ These categories enable you to refer to both a view and an attribute in one expr
 
 You can use a dictionary to specify more complex constraints:
 
-* `@"top ==": @{als_view:headerView.al_bottom, als_constant:@(10)},`
+* `@"top ==": @{als_view:headerView.als_bottom, als_constant:@(10)},`
 * `@"width ==": @{als_constant:@(42), als_priority:@(UILayoutPriorityDefaultHigh)]`
 
 Supported keys are:
